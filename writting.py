@@ -1,6 +1,6 @@
-file_contacts = open('dados/contatos-written.csv', encoding='latin_1', mode='a')
+file_contacts = open('dados/contatos-written.csv', encoding='latin_1', mode='w+')
 
-contacts = [ '11,Pablo,pabl0@email.com.br\n',
+contacts = ['11,Pablo,pabl0@email.com.br\n',
             '12,Lucas,lucas@email.com.br\n',
             '13,Rildete,rildete@email.com.br\n']
 
@@ -8,5 +8,8 @@ for contact in contacts:
     file_contacts.write(contact)
 
 file_contacts.flush()
+file_contacts.write('14,Melissa,melissa@email.com.br\n'.upper())
+file_contacts.seek(0)
 
-input("dear user, please press <enter> in your keaboard to terminate the execution.")
+for line in file_contacts:
+    print(line, end='')
